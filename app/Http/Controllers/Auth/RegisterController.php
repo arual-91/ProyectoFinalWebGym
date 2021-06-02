@@ -34,6 +34,7 @@ class RegisterController extends Controller
             'dni' => ['required', 'string', 'min:9', 'max:9'],
             'address' => ['required', 'string', 'max:255'],
             'cuota' => ['required', 'string'],
+            'phone' => ['required', 'integer'],
             'cccCountry' => ['required', 'string'],
             'ccc1' => ['required', 'string'],
             'ccc2' => ['required', 'string'],
@@ -50,10 +51,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'dni' => $data['dni'],
             'address' => $data['address'],
-            'rol' => "user",
+            'rol' => 2,
             'cuota' => $data['cuota'],
+            'phone' =>$data['phone'],
             'password' => Hash::make($data['password']),
-            'IBAN' => Crypt::encryptString($data['cccCountry'].$data['ccc1'].$data['ccc2'].$data['ccc3'].$data['ccc4']),
+            'IBAN' => Crypt::encryptString($data['cccCountry']."-".$data['ccc1']."-".$data['ccc2']."-".$data['ccc3']."-".$data['ccc4']),
         ]);
     }
 }

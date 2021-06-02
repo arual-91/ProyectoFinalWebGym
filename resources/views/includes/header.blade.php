@@ -167,20 +167,31 @@
             margin: 0;
         }
 
-        .title-pag{
-            background-color: black;
-            color: white;
-            padding:8px;
-            font-size: 25px;
-            border-radius: 50px 0 50px 0;
-            border: white solid 3px;
-            width: 400px;
-            margin: auto;
-            margin-bottom:30px; 
-            box-shadow: inset 0 0 10px 0 #FFFF00,
-            0 0 10px 0 #FFFF00;
-        }
-
+        .title-pag h2{
+            font-size: 60px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            letter-spacing: .1em;
+            font-weight: bold;
+            text-shadow: 
+            0 -1px 0 rgb(255, 255, 254), 
+            0 1px 3px #636363, 
+            0 2px 3px #6d6d6d, 
+            0 3px 3px #494949, 
+            0 4px 3px #282828, 
+            0 5px 3px #262626, 
+            0 6px 3px #242424, 
+            0 7px 3px #1e1e1e, 
+            0 8px 3px #1e1e1e, 
+            0 9px 3px #1e1e1e, 
+            0 10px 3px #111111, 
+            0 11px 3px #111111, 
+            0 12px 3px #111111, 
+            0 13px 3px #000000, 
+            0 14px 3px #000000, 
+            0 15px 3px #000000, 
+            0 20px 15px rgb(78, 78, 78);
+  }
         .carousel-caption {
             background-color: rgba(0, 0, 0, 0.678);
             width: 500px;
@@ -220,15 +231,171 @@
         }
 
         .btn-filter{
-            width: 10%;
+            width: 8%;
             height: 50px;
-            color: rgb(0, 0, 0);
+            border-radius: 25px;
+            background: #fffb00;
+            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+            color: black;
             background-color: #FFFF00;
-            box-shadow: inset 0 0 5px white; 
-            border-radius: 5px;
+            font-weight: bold;
+            transition: transform .2s ease-out;
+            
+        }
+        .btn-filter:hover{
+            transform: scale(1.02);
+            color: black;
         }
 
-        
+        .tbody-yellow tr:nth-child(even){
+            background: #ffffff;
+        }
+        .tbody-yellow tr:nth-child(odd){
+            background: #faffd3;
+        }
+
+        h2.title-profile{
+            text-shadow: 0 0 5px  #FFFF00;
+            -webkit-text-stroke: 1px rgb(73, 73, 73);
+            font-size: 50px;
+          
+        }
+
+        .card-profile{
+            border-radius: 20px 20px 0 0;
+            background-color: #feffad;
+            padding: 20px;
+        }
+
+        .card-profile-name{
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 5px  #fffb00;
+        }
+
+        .card{
+            border: 1px solid #313131;
+            border-radius: 20px ;
+            font-size: 16px;
+            padding: 0;
+        }
+
+        nav.nav-profile ul li a{
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 18px;
+        }
+
+        nav.nav-profile ul li{
+            float: left;
+            margin: 0px 10px 0 10px;
+            
+        }
+
+        nav.nav-profile ul{
+            list-style: none;
+            display: inline-block;
+            padding:18px;
+            margin: 0;
+        }
+
+        nav.nav-profile{
+            text-align: center;
+        }
+        nav.nav-profile ul li a:hover{
+            background-color: white;
+            color: #000000;
+        }
+
+        .input-format{
+            width: 15%;
+            height: 50px;
+            background: #ffffff;
+            border: none;
+            padding-left: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        #precio{
+            width: 8%;
+        }
+
+        #description{
+            width: 53%;
+        }
+        #intensity{
+            width: 10%;
+        }
+        #calories{
+            width: 10%;
+        }
+        #description-activity{
+            width: 40%;
+        }
+
+
+        .file {
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+        }
+        .file-input  {
+            width: 12%;
+            height: 50px;
+        }
+
+        .file-input label {
+            height: 50px;
+            border-radius: 25px;
+            background: #fffb00;
+            box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:black;
+            font-weight:bold;
+            cursor: pointer;
+            transition: transform .2s ease-out;
+            margin-top: -20px 
+            
+        }
+
+        input:hover + label,
+        input:focus + label {
+            transform: scale(1.02);
+        }
+
+       .btn-delete{
+            text-decoration: none;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #ffffff;
+            background-color: hsl(0, 100%, 62%);
+            border-radius: 8px;
+            border: none;
+
+       }
+       .btn-delete:hover{
+            color: #ffffff;
+            background-color: #ac0000;
+       }
+
+    .title-profile {
+        color: #1d1d1d;
+        letter-spacing: .05em;
+        text-shadow: 
+        2px 2px 1px #ffffff, 
+        6px 6px 1px rgba(0, 0, 0, 0.342);
+    }
+    .title-profile h2{ 
+        font-size: 55px;
+        font-weight: bold;
+   }
+
      </style>
 </head>
 <body class="d-flex flex-column min-vh-100">

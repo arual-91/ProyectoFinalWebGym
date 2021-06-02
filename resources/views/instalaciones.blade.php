@@ -8,7 +8,7 @@
 
     <!-- section 4 - IMAGENES - carousel -->
             <div class="title-pag " >
-                <h2 class=" text-center font-weight-bold">Instalaciones</h2>
+                <h2 class=" text-center">INSTALACIONES</h2>
             </div>
 
             <div id="demo" class="carousel slide" data-ride="carousel">

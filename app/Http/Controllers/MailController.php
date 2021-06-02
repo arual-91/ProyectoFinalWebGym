@@ -10,7 +10,7 @@ class MailController extends Controller
 {
     public function sendEmail(Request $request){
 
-      $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Contacto");
+      $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
 
 
         $validated = $request->validate([

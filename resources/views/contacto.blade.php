@@ -6,7 +6,7 @@
 <div class="container mt-5">
 
     <div class="title-pag " >
-        <h2 class=" text-center font-weight-bold">Contactanos</h2>
+        <h2 class=" text-center font-weight-bold">CONTACTO</h2>
     </div>
 
     <div class="row mt-5 mb-4">

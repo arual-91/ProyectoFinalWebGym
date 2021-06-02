@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
+        DB::table('users');
 
         User::create([
             'name' => "Laura",
@@ -26,7 +26,8 @@ class UserSeeder extends Seeder
             'address'=>"Calle Toles, 12, 1A",
             'cuota'=>"Anual",
             'rol'=>1,
-            'IBAN'=>Crypt::encryptString("ES6621000418401234567891"),
+            'phone'=>677055268,
+            'IBAN'=>Crypt::encryptString("ES-1464-0004-18-4012345678"),
             'email' =>"admin@gmail.com",
             'password' => Hash::make("12345678"),
         ]);
@@ -38,7 +39,8 @@ class UserSeeder extends Seeder
             'address'=>"Calle Locura, 16, 5A",
             'cuota'=>"Trimestral",
             'rol'=>2,
-            'IBAN'=>Crypt::encryptString("ES9000246912501234567891"),
+            'phone'=>655705525,
+            'IBAN'=>Crypt::encryptString("ES-1364-2469-12-5012345678"),
             'email' =>"fran@gmail.com",
             'password' => Hash::make("12345678"),
         ]);
@@ -50,9 +52,12 @@ class UserSeeder extends Seeder
             'address'=>"Calle Amargura, 12, 4A",
             'cuota'=>"Trimestral",
             'rol'=>2,
-            'IBAN'=>Crypt::encryptString("ES1000492352082414205416"),
+            'phone'=>697055248,
+            'IBAN'=>Crypt::encryptString("ES-1465-4923-52-0824142054"),
             'email' =>"teren@gmail.com",
             'password' => Hash::make("12345678"),
         ]);
+
+        
     }
 }

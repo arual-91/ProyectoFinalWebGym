@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sales extends Model
+class Activities extends Model
 {
     use HasFactory;
-    protected $table='sales';
+    protected $table='activities';
 
     protected $fillable = [
-        'product_id',
-        'user_id',
-        'shipping_address'
+        'name',
+        'description',
+        'intensity',
+        'calories',
+        'image'
     ];
-
-    
 }

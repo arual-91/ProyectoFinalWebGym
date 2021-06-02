@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sales;
+
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class TiendaController extends Controller
 {
     public function index(){
 
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Contacto");
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
 
         $products = Product::all()->sortBy('price'); // sortByDesc
 
@@ -20,17 +20,17 @@ class TiendaController extends Controller
     }
 
     public function show($id){
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Contacto");
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
 
-        $products = Product::find($id);  // $Product = Product::find($id);   <-- metodo viene por defecto
+        $product = Product::find($id);  // $Product = Product::find($id);   <-- metodo viene por defecto
 
         return view('infoProduct')
         -> with('navs',  $menus)
-        -> with('products',  $products );
+        -> with('product',  $product );
     }
 
     public function search(Request $request){
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Contacto");
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
 
         $search = $request->input('search');
         $order = $request->input('order');
@@ -54,12 +54,13 @@ class TiendaController extends Controller
         -> with('products',  $products );
     }
 
-    public function buy(Request $request){
+    public function store(Product $product){
 
-        $sales = new Sales;
-        $sales->save();
- 
-        return $this->index();
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
+        });
+
+        return redirect('/tienda');
     }
 
 }

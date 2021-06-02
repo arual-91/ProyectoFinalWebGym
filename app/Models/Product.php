@@ -10,6 +10,13 @@ class Product extends Model
     use HasFactory;
     protected $table='product';
 
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'image'
+    ];
+
     public function encontrar($id){
         return $this->where('id', $id)->first();
     }

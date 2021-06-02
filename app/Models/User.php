@@ -24,6 +24,7 @@ class User extends Authenticatable
         'address',
         'cuota',
         'rol',
+        'phone',
         'IBAN'
     ];
 

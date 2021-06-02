@@ -12,10 +12,11 @@
                     </li> 
                 @endforeach
             </ul>  
-            <ul class="nav navbar-nav ">    
+            <ul class="nav navbar-nav ">  
+            
                 @guest
-                    <a class="seccion" href="{{ route('login')}}" class="pull-left">Login</a> 
-                    @else 
+                    <a class="seccion" href="{{ route('login')}}" class="pull-left">Login</a>       
+                @else 
                     <a class="seccion-close text-yellow m-4" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Cerrar Sesion
                     </a>

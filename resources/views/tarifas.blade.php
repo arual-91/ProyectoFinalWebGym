@@ -7,7 +7,7 @@
 <div class="container mt-5 mb-5 pb-4">
 
     <div class="title-pag " >
-        <h2 class=" text-center font-weight-bold">Tarifas</h2>
+        <h2 class=" text-center font-weight-bold">TARIFAS</h2>
     </div>
 
     <div class="tarifa motivation row " >
