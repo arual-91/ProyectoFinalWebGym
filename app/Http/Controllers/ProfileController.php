@@ -11,9 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
-
-
-
 class ProfileController extends Controller
 {
     public function index(){
@@ -21,7 +18,8 @@ class ProfileController extends Controller
         $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
         $user = \Auth::user()->rol;
         $user_id = \Auth::user()->id;
-
+        $time_out = (new \DateTime())->modify('-2 minutes');
+        $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         $IBAN =Crypt::decryptString( auth()->user()->IBAN);
 
         if($user == 1){
@@ -36,20 +34,14 @@ class ProfileController extends Controller
                         ->where('users.id', $user_id)
                         ->get(['sales.*', 'product.name as name_product','product.price','users.name as name_user'])
                         ->sortByDesc('created_at');
-       
-        $time_out = (new \DateTime())->modify('-2 minutes');
-        
+
         $bookings = Booking::join('schedule', 'schedule.id', '=', 'bookings.id_schedules')
                             ->join('users', 'users.id', '=', 'bookings.user_id')
                             ->leftJoin('activities', 'activities.id', '=', 'schedule.id_Activity')
                             ->where('users.id', $user_id)
                             ->get(['bookings.id as id_booking','schedule.date','schedule.hour','activities.name','schedule.places'])
                             ->sortByDesc('created_at');
-
-        $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
-
-
-                            
+        
         return view('profile') 
         -> with('navs',  $menus )
         -> with('navsProfiles',  $menusProfile )
@@ -58,7 +50,6 @@ class ProfileController extends Controller
         -> with('time_out',  $time_out )
         -> with('day_week_es',  $day_week_es )
         -> with('bookings',  $bookings );
-
     }
 
     public function delete_order(Sales $order){
@@ -87,7 +78,6 @@ class ProfileController extends Controller
         -> with('navs',  $menus )
         -> with('navsProfiles',  $menusProfile )
         -> with('users',  $users );
-
     }
 
     public function delete_user(User $user){
@@ -112,14 +102,14 @@ class ProfileController extends Controller
         $description = $request->input('description');
         $price = $request->input('price');
         $file = $request-> file("urlfoto");
-        $nombrearchivo = $file->getClientOriginalName();
-        $file->move(public_path("imagenes/tienda/"),$nombrearchivo);
+        $name_file = $file->getClientOriginalName();
+        $file->move(public_path("imagenes/tienda/"),$name_file);
 
         Product::create([
             'name' =>  $name,
             'description' => $description,
             'price' => $price,
-            'image' =>  $nombrearchivo,
+            'image' =>  $name_file,
         ]);
 
         return redirect('/perfil/productos');
@@ -140,15 +130,15 @@ class ProfileController extends Controller
         $intensity = $request->input('intensity');
         $calories = $request->input('calories');
         $file = $request-> file("urlfoto");
-        $nombrearchivo = $file->getClientOriginalName();
-        $file->move(public_path("imagenes/activities/"),$nombrearchivo);
+        $name_file = $file->getClientOriginalName();
+        $file->move(public_path("imagenes/activities/"),$name_file);
 
         Activities::create([
             'name' =>  $name,
             'description' => $description,
             'intensity' => $intensity,
             'calories' => $calories,
-            'image' =>  $nombrearchivo,
+            'image' =>  $name_file,
         ]);
 
         return redirect('/perfil/actividades');
@@ -172,7 +162,6 @@ class ProfileController extends Controller
         -> with('navs',  $menus )
         -> with('navsProfiles',  $menusProfile )
         -> with('products',  $products );
-
     }
 
     public function activity(){
@@ -193,7 +182,6 @@ class ProfileController extends Controller
         -> with('navs',  $menus )
         -> with('navsProfiles',  $menusProfile )
         -> with('activities',  $activities );
-
     }
 
     public function sales(){
@@ -217,10 +205,5 @@ class ProfileController extends Controller
         -> with('navs',  $menus )
         -> with('navsProfiles',  $menusProfile )
         -> with('sales',  $sales ); 
-
     }
-
-
-
-
 }

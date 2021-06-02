@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\Crypt;
 
 class RegisterController extends Controller
 {  
-
     use RegistersUsers;
-
     protected $redirectTo = '/';
-
 
     public function __construct()
     {

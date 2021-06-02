@@ -3,11 +3,9 @@
 @include('/includes/nav')
 
 <!-- CUERPO -->
-
 <div class="container-fluid">
     <div class="container mt-5 mb-5">
 		<div class=" rounded-corners bg-white m-1 p-5 ">
-
 			<div class="row media">
 				<img  class="col-4 pt-5 "  src="/imagenes/tienda/{{$product->image}}" >
 				<div class="col">
@@ -29,17 +27,13 @@
 								</form>
 							@endguest
 						</div>
-						 
 					</article>
 				</div>
 			</div>
 			<a href="{{ url('/tienda') }}" class="boton-tarifa btn mt-5" ><span class="fas fa-long-arrow-alt-left"> </span> VOLVER</a>
-			
-
 		</div>
 	</div>	
 </div>
-        
 
 <!-- FOOTER -->
 @include('/includes/footer')

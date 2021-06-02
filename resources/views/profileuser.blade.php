@@ -5,7 +5,6 @@
 
 <!-- CUERPO -->
 <div class="container-fluid mb-5 ">
-
     <div class="rounded-corners bg-white p-5 ml-5 mr-5 ">
         @if(auth()->user()->rol == 1)
         <div class="title-profile">

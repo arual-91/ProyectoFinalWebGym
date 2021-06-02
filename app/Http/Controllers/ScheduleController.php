@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class ScheduleController extends Controller
 {
     public function index(){
@@ -40,8 +38,7 @@ class ScheduleController extends Controller
 
         //$date_now = new \DateTime();
         //$date_now = (new \DateTime())->modify('+5 day');
-       $date_now = (new \DateTime())->modify('+15 day');
-
+        $date_now = (new \DateTime())->modify('+15 day');
 
         return view('profileSchedule') 
             -> with('navs',  $menus )
@@ -53,7 +50,6 @@ class ScheduleController extends Controller
             -> with('date_now',  $date_now )
             -> with('day_week_es',  $day_week_es )
             -> with('last_day_of_week',  $last_day_of_week );  
-
     }
 
     public function book_class(Schedule $class){
@@ -72,11 +68,9 @@ class ScheduleController extends Controller
         ]);
 
         return redirect('/perfil');
-
     }
     
     public function delete_booking(Booking $booking){
-
 
         $schedules = Schedule::find($booking->id_schedules);
         $schedules->occupation = $schedules->occupation - 1;
@@ -86,8 +80,6 @@ class ScheduleController extends Controller
         $booking_delete->delete();
 
         return redirect('/perfil');
-        
-
     }
 
     public function add_class(Request $request){
@@ -112,9 +104,6 @@ class ScheduleController extends Controller
         $schedules-> save();
 
         return redirect('/perfil/horario');
-
-        
-
     }
 
     public function update_schedule(Request $request){
@@ -128,10 +117,6 @@ class ScheduleController extends Controller
             $schedule-> save();
         }
         
-
         return redirect('/perfil/horario');
-
-        
-
     }
 }

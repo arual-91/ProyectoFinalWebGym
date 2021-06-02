@@ -7,10 +7,10 @@
 <div class="container-fluid mb-5 ">
     <div class="rounded-corners bg-white p-5 ml-5 mr-5 ">
         @if(auth()->user()->rol == 1)
-        <div class="title-profile">
-            <h2 class=" mb-4  pb-2 text-center">PRODUCTOS</h2>
-        </div>        
-        <p class="file-name text-white"></p>
+            <div class="title-profile">
+                <h2 class=" mb-4  pb-2 text-center">PRODUCTOS</h2>
+            </div>        
+            <p class="file-name text-white"></p>
             <form action="{{ route('profile.create_product') }}" enctype="multipart/form-data" method="POST" class="m-5 row">
                 {{ csrf_field() }}
                 <div class="file-input mr-2 ">

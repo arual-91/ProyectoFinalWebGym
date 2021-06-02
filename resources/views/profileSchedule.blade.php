@@ -6,16 +6,13 @@
 <!-- CUERPO -->
 <div class="container-fluid mb-5 ">
     <div class="rounded-corners bg-white p-5 ml-5 mr-5 ">
-
         @if(auth()->user()->rol == 1)
-
             <div class="row">
                 <div  class="col">
                     <form action="{{ route('schedule.add_class') }}"  method="POST" class="m-3 row">
                         {{ csrf_field() }}
                         <select class="m-1" name="dates">
                             @foreach ($dates as $date)
-
                                 <option value="{{$date->date }}">{{$day_week_es[(new DateTime($date->date))->format('w')-1] }} {{(new DateTime($date->date))->format('d/m/y')}}</option>
                             @endforeach
                         </select>
@@ -43,14 +40,12 @@
                     @else
                         <button type="submit" class="btn btn-danger " style="width: 150px" disabled>Nuevo horario</button>
                     @endif
-                    
                 </div>
             </div>
         @endif
         <div class="title-profile">
             <h2 class=" mb-4  text-center">HORARIO</h2>
         </div>
-
         <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
@@ -97,7 +92,6 @@
                  @endforeach
             </tbody>
         </table>
-        
     </div>
 </div>
 

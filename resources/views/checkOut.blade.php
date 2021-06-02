@@ -2,7 +2,6 @@
 @include('/includes/header')
 
 <!-- CUERPO -->
-
 <div class="container-fluid">
     <div class="container mt-5 mb-5">
 		<div class=" rounded-corners bg-white m-1 p-5 ">
@@ -87,7 +86,6 @@
 							</div>
 						</div>
 					</form>
-
 				</div>
 			</section>
 		</div>

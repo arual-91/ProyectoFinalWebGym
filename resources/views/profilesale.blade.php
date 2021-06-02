@@ -7,9 +7,9 @@
 <div class="container-fluid mb-5 ">
     <div class="rounded-corners bg-white p-5 ml-5 mr-5 ">
         @if(auth()->user()->rol == 1)
-        <div class="title-profile">
-            <h2 class=" mb-4  pb-2 text-center">VENTAS</h2>
-        </div>
+            <div class="title-profile">
+                <h2 class=" mb-4  pb-2 text-center">VENTAS</h2>
+            </div>
             <table class="table text-center m-auto" style="width: 95%;">
                 <thead class="table-dark">    
                     <tr>

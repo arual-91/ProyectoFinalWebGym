@@ -23,7 +23,6 @@
             padding-top:20px ;
             padding-bottom:20px ;
             margin-bottom:0;
-            
         }
 
         #head {
@@ -43,7 +42,6 @@
             color: white;
             padding: 25px;
             font-size: 14px;
-
         }
 
         .navbar-dark .navbar-nav a.nav-link:hover{
@@ -62,7 +60,6 @@
             border-radius: 5px;
             box-shadow: inset 0 0 6px #FFFF00,
                         0 0 6px #FFFF00;
-            
         }
         a.seccion:hover{
             box-shadow: inset 0 0 15px #FFFF00,
@@ -92,14 +89,12 @@
             text-align: center;
         }
 
-         div h2.title{
+        div h2.title{
             background-color: black;
             padding: 6px;
             font-size: 17px;
             border-radius: 50px 0 50px 0;
-
         }
-
 
         div  .decription-tarifa{
             font-size: 15px;
@@ -114,14 +109,12 @@
             background-color: rgb(0, 0, 0);
             color: white;
             font-weight: bold;
-            
         }
 
         a.boton-tarifa:hover{
             color: white;
             box-shadow:  0 0 10px white,
                         inset 0 0 5px white;               
-
         }
 
         div.motivation.row{
@@ -133,8 +126,6 @@
         .rounded-corners{
             border-radius: 20px;
             box-shadow: inset 0 0 15px 0 black;
-
-
         }
 
         a.social-item{
@@ -145,10 +136,12 @@
             padding: 5px;
             text-decoration: none;
         }
+
         a.social-item:hover{
             background-color: white;
             color:black;
         }
+
         a.social-item-contac{
             font-size: 20px;
             background-color: black;
@@ -191,7 +184,7 @@
             0 14px 3px #000000, 
             0 15px 3px #000000, 
             0 20px 15px rgb(78, 78, 78);
-  }
+        }
         .carousel-caption {
             background-color: rgba(0, 0, 0, 0.678);
             width: 500px;
@@ -239,9 +232,9 @@
             color: black;
             background-color: #FFFF00;
             font-weight: bold;
-            transition: transform .2s ease-out;
-            
+            transition: transform .2s ease-out; 
         }
+
         .btn-filter:hover{
             transform: scale(1.02);
             color: black;
@@ -250,6 +243,7 @@
         .tbody-yellow tr:nth-child(even){
             background: #ffffff;
         }
+
         .tbody-yellow tr:nth-child(odd){
             background: #faffd3;
         }
@@ -258,7 +252,6 @@
             text-shadow: 0 0 5px  #FFFF00;
             -webkit-text-stroke: 1px rgb(73, 73, 73);
             font-size: 50px;
-          
         }
 
         .card-profile{
@@ -291,7 +284,6 @@
         nav.nav-profile ul li{
             float: left;
             margin: 0px 10px 0 10px;
-            
         }
 
         nav.nav-profile ul{
@@ -318,6 +310,7 @@
             border-radius: 5px;
             border: 1px solid black;
         }
+
         #precio{
             width: 8%;
         }
@@ -325,23 +318,21 @@
         #description{
             width: 53%;
         }
-        #intensity{
+
+        #intensity, #calories{,
             width: 10%;
         }
-        #calories{
-            width: 10%;
-        }
+
         #description-activity{
             width: 40%;
         }
-
 
         .file {
             opacity: 0;
             width: 0;
             height: 0;
-
         }
+
         .file-input  {
             width: 12%;
             height: 50px;
@@ -360,7 +351,6 @@
             cursor: pointer;
             transition: transform .2s ease-out;
             margin-top: -20px 
-            
         }
 
         input:hover + label,
@@ -377,24 +367,25 @@
             background-color: hsl(0, 100%, 62%);
             border-radius: 8px;
             border: none;
-
        }
+
        .btn-delete:hover{
             color: #ffffff;
             background-color: #ac0000;
        }
 
-    .title-profile {
-        color: #1d1d1d;
-        letter-spacing: .05em;
-        text-shadow: 
-        2px 2px 1px #ffffff, 
-        6px 6px 1px rgba(0, 0, 0, 0.342);
-    }
-    .title-profile h2{ 
-        font-size: 55px;
-        font-weight: bold;
-   }
+        .title-profile {
+            color: #1d1d1d;
+            letter-spacing: .05em;
+            text-shadow: 
+            2px 2px 1px #ffffff, 
+            6px 6px 1px rgba(0, 0, 0, 0.342);
+        }
+
+        .title-profile h2{ 
+            font-size: 55px;
+            font-weight: bold;
+        }
 
      </style>
 </head>

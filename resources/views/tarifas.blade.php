@@ -3,14 +3,11 @@
 @include('/includes/nav')
 
 <!-- CUERPO -->
-
 <div class="container mt-5 mb-5 pb-4">
-
     <div class="title-pag " >
         <h2 class=" text-center font-weight-bold">TARIFAS</h2>
     </div>
-
-    <div class="tarifa motivation row " >
+    <div class="tarifa motivation row" >
         <div class="col-sm border-right border-dark">
             <h2 class="title m-4 text-center font-weight-bold text-white">CUOTA MENSUAL</h2>
             <h5 class="precio-tarifa m-4 text-center ">25€</h5>
@@ -36,7 +33,6 @@
             </div>            
         </div>
     </div>
-
 </div>
 
 <!-- FOOTER -->

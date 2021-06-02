@@ -3,10 +3,7 @@
 @include('/includes/nav')
 
 <!-- CUERPO -->
-
-
 <div class="container">
-
     <div class="m-5 p-5 bg-white rounded-corners">
         <h1 class="text-center mb-4">TE SENTIRÁS BIEN,<b> TE VERÁS MEJOR</b></h1>
         <p class="text-center ">Aumenta tu calidad de vida y cuida tu cuerpo, es el único lugar en el que vivirás el resto de tu vida.</p>
@@ -14,7 +11,6 @@
         <p class="text-center ">Realiza actividad física diaria, una alimentación equilibrada y conseguirás grandes resultados visibles desde el primer mes, además de un aspecto mucho mas saludable tanto interior como exteriormente.</p>
         <h5 class="text-center m-4"><em>“VIVIR CON UNA MENTALIDAD POSITIVA NUNCA PUEDE SALIR MAL”</em></h5>
     </div>
-
     <h1 class="text-white text-center mt-5 pb-2" >VIVE UNA <b> NUEVA EXPERIENCIA</b></h1>
     <div class="motivation row " >
         <div class="col-sm border-right border-warning">
@@ -23,7 +19,6 @@
             </div>
             <h2 class="title m-4 text-center font-weight-bold text-white">AUMENTA TU CONFIANZA</h2>
             <p class=" m-4 text-center ">Alcanzar tu meta ahora es posible. Cuida tu cuerpo y tu salud, ganarás en autoestima.</p>
-
         </div>
         <div class="col-sm border-right border-warning">
             <div class="icons">
@@ -47,7 +42,6 @@
         <p class="text-center ">HIIT, INSANNITY, BOXEO, TRX, CROSSFIT, FUNCIONAL, BODYTONIC, SUELO PÉLVICO, PILATES, SPINNING, GAP</p>
         <h5 class="text-center m-4"><em>“UN DESEO NO CAMBIA NADA. UNA DECISIÓN CAMBIA TODO”</em></h5>
     </div>
-
 </div>
 
 <!-- FOOTER -->

@@ -12,21 +12,17 @@ class MailController extends Controller
 
       $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
 
+      $validated = $request->validate([
+          'email' => 'required',
+          'cuerpo' => 'required',
+      ]);
 
-        $validated = $request->validate([
-            'email' => 'required',
-            'cuerpo' => 'required',
-        ]);
+      $body = $request->input("cuerpo");
+      $email = $request->input("email");
 
-        $body = $request->input("cuerpo");
-        $email = $request->input("email");
+      $mail = new EmailMailable($body,  $email);
+      Mail::to("gyms.fitness.club@gmail.com")->send($mail);  
 
-        $correo = new EmailMailable($body,  $email);
-        Mail::to("gyms.fitness.club@gmail.com")->send($correo);  
-    
-        return view('confirmail')
-        -> with('navs',  $menus );
-        
-      //  return 'Mensaje enviado <a href="/contacto" > Volver </a>';
-
+      return view('confirmail')
+      -> with('navs',  $menus );
     }}

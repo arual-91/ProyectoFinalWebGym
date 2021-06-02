@@ -29,17 +29,19 @@ Route::get('/inicio', [HomeController::class,'index']);
 
 Route::get('/tarifas', [TarifasController::class,'index']);
 
+Route::get('/instalaciones', [InstalacionesController::class,'index']);
+
+Route::get('/actividades', [ActivitiesController::class,'index']);
+
+Route::get('/contacto', [ContactoController::class,'index']);
+Route::post('/contacto', [MailController::class, 'sendEmail']);
+
 Route::get('/tienda', [TiendaController::class,'index']);
 Route::get('/tienda/search', [TiendaController::class,'search']);
 Route::get('/tienda/{id}', [TiendaController::class,'show']);
 
 Route::post('tienda/checkout/{product}', [CheckOutController::class,'index'])->name('checkout.index')->middleware('auth');
 Route::post('tienda/checkout/confirm/{product}', [CheckOutController::class,'store'])->name('checkout.store')->middleware('auth');
-
-Route::get('/instalaciones', [InstalacionesController::class,'index']);
-
-Route::get('/contacto', [ContactoController::class,'index']);
-Route::post('/contacto', [MailController::class, 'sendEmail']);
 
 Route::get('/perfil', [ProfileController::class,'index'])->middleware('auth');
 Route::get('/perfil/perfil', [ProfileController::class,'index'])->middleware('auth');
@@ -64,7 +66,7 @@ Route::post('/perfil/horario/reservar/{class}', [ScheduleController::class,'book
 Route::post('/perfil/horario/add_class', [ScheduleController::class,'add_class'])->name('schedule.add_class')->middleware('auth');
 Route::get('/perfil/horario/update_schedule', [ScheduleController::class,'update_schedule'])->name('schedule.update_schedule')->middleware('auth');
 
-Route::get('/actividades', [ActivitiesController::class,'index']);
+
 
 Auth::routes();
 

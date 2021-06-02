@@ -4,11 +4,9 @@
 
 <!-- CUERPO -->
 <div class="container mt-5">
-
     <div class="title-pag " >
         <h2 class=" text-center font-weight-bold">CONTACTO</h2>
     </div>
-
     <div class="row mt-5 mb-4">
         <!-- INFORMACION CONTACTO -->
         <div class="col-lg-3 mt-4">
@@ -26,7 +24,6 @@
                 </li>
             </ul>
         </div>
-
         <!-- FORMULARIO CONTACTO -->
         <div id="formulario" class="col container pt-5 mt-4 rounded-corners mb-5 " style="background-color:white">
             <section id="formulario  " >
@@ -49,11 +46,8 @@
                 </form>
             </section>
         </div>
-
     </div>
-
 </div>
-
 
 <!-- FOOTER -->
 @include('/includes/footer')

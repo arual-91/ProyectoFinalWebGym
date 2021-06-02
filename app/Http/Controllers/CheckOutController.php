@@ -32,8 +32,5 @@ class CheckOutController extends Controller
 
         return view('checkOutConfirm') 
         -> with('product',  $product );
-      
     }
-
-
 }
