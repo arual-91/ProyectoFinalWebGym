@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\BookingSeeder;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\ScheduleSeeder;
 use Database\Seeders\ActivitiesSeeder;
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ActivitiesSeeder::class); 
         $this->call(SalesSeeder::class); 
         $this->call(ScheduleSeeder::class); 
+        $this->call(BookingSeeder::class); 
+
     }
 }

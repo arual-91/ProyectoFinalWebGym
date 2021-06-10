@@ -15,6 +15,4 @@ class Sales extends Model
         'user_id',
         'shipping_address'
     ];
-
-    
 }

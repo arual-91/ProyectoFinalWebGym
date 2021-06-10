@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 
 <!-- CUERPO -->
@@ -11,12 +11,17 @@
         <!-- INFORMACION CONTACTO -->
         <div class="col-lg-3 mt-4">
             <ul class="p-0" style="list-style: none; ">
-                <li class="mt-5 ">
+                <li class="mt-4 ">
+                    <span class="text-yellow text-uppercase t">Horario:</span ><span class="text-white"><br> Lunes - Sábado <br> 10:00 - 21:00</span></li>
+                <li class="mt-4 ">
                     <span class="text-yellow text-uppercase t">Email:</span ><span class="text-white"><br> gyms.fitness.club@gmail.com</span></li>
-                <li class="mt-5 ">
+                <li class="mt-4 ">
                     <span class="text-yellow text-uppercase ">Telefono:</span><br><span class="text-white"> 959 66 56 56</span>
                 </li>
-                <li class="mt-5 ">
+                <li class="mt-4 ">
+                    <span class="text-yellow text-uppercase ">Direccion:</span><br><span class="text-white"> Calle del Deportista, 21<br> 07004 - Palma<br> España  </span>
+                </li>
+                <li class="mt-4 ">
                     <span class="text-yellow text-uppercase "> REDES SOCIALES:</span><br><br>
                     <a href="#" class="social-item-contac rounded-circle "><span class="icon-twitter m-1"></span></a>
                     <a href="#" class="social-item-contac rounded-circle "><span class="icon-instagram m-1"></span></a>

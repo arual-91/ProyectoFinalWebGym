@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 
 <!-- CUERPO -->
@@ -9,6 +9,7 @@
             <h2 class=" text-center font-weight-bold">TIENDA</h2>
         </div>
         <form action="{{ url('/tienda/search') }}" method="GET" class="m-4">
+            {{ csrf_field() }}
             <input class="search mr-2" type="text" name="search" placeholder="Buscar.." />
             <select class="order mr-2"  name="order" id="input">
                 <option value="Asc">Precio Ascendente</option>

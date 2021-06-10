@@ -1,7 +1,8 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
+
 
 <!-- CUERPO -->
 <div class="container-fluid mb-5 ">
@@ -34,10 +35,7 @@
                             <td>{{$user->cuota}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <form action="{{ route('profile.delete_user', $user) }}" method="POST" class="m-2">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn-delete"><span class="fas fa-trash-alt" name='delete_user'></span></button>
-                                </form>
+                                <button type="submit" class="btn-delete delete-user" data-id="{{ $user->id }}"><span class="fas fa-trash-alt" name='delete_user'></span></button>
                             </td>
                         </tr>
                     @endforeach
@@ -50,6 +48,8 @@
         @endif
     </div>
 </div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 
 <!-- FOOTER -->
 @include('/includes/footer')

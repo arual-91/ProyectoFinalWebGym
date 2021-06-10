@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 
 <!-- CUERPO -->
 <div class="container">

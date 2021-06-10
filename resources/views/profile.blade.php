@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
 
@@ -32,10 +32,10 @@
                 <table class="table ">
                     <thead class="thead-dark">
                         <tr>
-                        <th scope="col" >Actividad</th>
-                        <th scope="col">Dia</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">Cancelar</th>
+                            <th scope="col" >Actividad</th>
+                            <th scope="col">Dia</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Cancelar</th>
                         </tr>
                     </thead>
                     <tbody>       
@@ -48,10 +48,7 @@
                                         <td>{{$day_week_es[(new DateTime($booking->date))->format('w')-1] }} {{(new DateTime($booking->date))->format('d/m/Y')}}</td>
                                         <td>{{$booking->hour}}</td>
                                         <td>
-                                            <form action="{{ route('schedule.delete_booking', $booking->id_booking ) }}" method="POST" class="text-right mr-3" >
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm ">Cancelar</button>
-                                            </form>
+                                            <button type="submit" class="btn btn-danger btn-sm delete-booking-profile" data-id="{{ $booking->id_booking }}">Cancelar</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,10 +82,7 @@
                                     <td>{{$order->shipping_address}}</td>
                                     <td>
                                         @if($order->created_at > $time_out)
-                                            <form action="{{ route('profile.delete_order', $order) }}" method="POST" class="m-2">
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn-delete btn-sm"><span class="fas fa-trash-alt" name='delete_product'></span></button>
-                                            </form>
+                                            <button type="submit" class="btn btn-danger btn-sm delete-sale-profile" data-id="{{ $order->id }}">Cancelar</button>
                                         @endif       
                                     </td>
                                 </tr>
@@ -101,6 +95,7 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 
 <!-- FOOTER -->
 @include('/includes/footer')

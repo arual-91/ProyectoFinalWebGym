@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
 
@@ -41,10 +41,7 @@
                             <td>{{$product->price}}</td>
                             <td><img  class=""  src="/imagenes/tienda/{{$product->image}}" style="width:80px"></td>
                             <td>
-                                <form action="{{ route('profile.delete_product', $product) }}" method="POST" class="m-2">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn-delete"><span class="fas fa-trash-alt" name='delete_product'></span></button>
-                                </form>
+                                <button type="submit" class="btn-delete delete-product"  data-id="{{ $product->id }}"><span class="fas fa-trash-alt" name='delete_product'></span></button>
                             </td>
                         </tr>
                     @endforeach
@@ -57,6 +54,8 @@
         @endif
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
+
 <script>
     const file = document.querySelector('#file');
     file.addEventListener('change', (e) => {

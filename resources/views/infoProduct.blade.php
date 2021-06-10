@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 
 <!-- CUERPO -->
@@ -23,7 +23,7 @@
 							@else 
 								<form action="{{ route('checkout.index', $product) }}" method="POST">
 									{{ csrf_field() }}
-									<button type="submit" class="btn bg-yellow mt-5">Comprar</button>
+									<button type="submit" class="btn bg-yellow mt-5" >Comprar</button>
 								</form>
 							@endguest
 						</div>

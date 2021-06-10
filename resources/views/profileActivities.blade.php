@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
 
@@ -19,8 +19,8 @@
                 </div>
                 <input class="input-format mr-2" type="text" name="name" placeholder="NOMBRE..." required/>
                 <input class="input-format mr-2" type="text" id="description-activity" name="description" placeholder="DESCRIPCION..." required/>
-                <input class="input-format mr-2" type="text" id="intensity" name="intensity" placeholder="INTENSIDAD..." required/>
-                <input class="input-format mr-2" type="text" id="calories" name="calories" placeholder="CALORIAS..." required/>
+                <input class="input-format mr-2" type="text" id="intensity" name="intensity" placeholder="INTENSIDAD..." style="width: 125px" required/>
+                <input class="input-format mr-2" type="text" id="calories" name="calories" placeholder="CALORIAS..." style="width: 125px" required/>
                 <button class="btn btn-filter mr-2" type="submit" name='create_activity' >Añadir</button> 
             </form>
             <table class="table text-center m-auto " style="width: 95%;">
@@ -43,10 +43,7 @@
                             <td>{{$activity->calories}}</td>
                             <td><img  src="/imagenes/Activities/{{$activity->image}}" style="width:120px"></td>
                             <td>
-                                <form action="{{ route('profile.delete_activity', $activity) }}" method="POST" class="m-2">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn-delete"><span class="fas fa-trash-alt" name='delete_activity'></span></button>
-                                </form>
+                                <button type="submit" class="btn-delete delete-activities" data-id="{{ $activity->id }}"><span class="fas fa-trash-alt" name='delete_activity'></span></button>
                             </td>
                         </tr>
                     @endforeach
@@ -59,10 +56,11 @@
         @endif
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 
 <script>
-    const file = document.querySelector('#file');
-    file.addEventListener('change', (e) => {
+    const file_photo = document.querySelector('#file');
+    file_photo.addEventListener('change', (e) => {
     document.querySelector('.text-btn').textContent ="1 Archivo Seleccionado";
 });
 </script>

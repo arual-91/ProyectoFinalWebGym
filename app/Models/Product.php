@@ -20,6 +20,4 @@ class Product extends Model
     public function encontrar($id){
         return $this->where('id', $id)->first();
     }
-
-    
 }

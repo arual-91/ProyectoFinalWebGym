@@ -18,15 +18,15 @@ class ScheduleSeeder extends Seeder
         DB::table('schedule');
 
         Schedule::create([
-            'date' => '2021-05-31',
+            'date' => '2021-06-07',
             'hour' => "10:00",
             'places' => 10,
-            'occupation' => 0,
+            'occupation' => 1,
             'id_Activity' =>1,
         ]);
 
         Schedule::create([
-            'date' => "2021-05-31",
+            'date' => "2021-06-07",
             'hour' => "12:00",
             'places' =>10,
             'occupation' => 0,
@@ -34,22 +34,22 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-05-31",
+            'date' => "2021-06-07",
             'hour' => "16:00",
             'places' =>10,
-            'occupation' => 0,
+            'occupation' => 1,
             'id_Activity' =>3,
         ]);
 
         Schedule::create([
-            'date' => "2021-05-31",
+            'date' => "2021-06-07",
             'hour' => "18:00",
             'places' =>0,
             'occupation' => 0,
             'id_Activity' =>null,
         ]);
         Schedule::create([
-            'date' => "2021-05-31",
+            'date' => "2021-06-07",
             'hour' => "20:00",
             'places' =>0,
             'occupation' => 0,
@@ -57,23 +57,23 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-01",
+            'date' => "2021-06-08",
             'hour' => "10:00",
             'places' =>10,
-            'occupation' => 0,
+            'occupation' => 1,
             'id_Activity' =>2,
         ]);
 
         Schedule::create([
-            'date' => "2021-06-01",
+            'date' => "2021-06-08",
             'hour' => "12:00",
             'places' =>10,
-            'occupation' => 0,
+            'occupation' => 1,
             'id_Activity' =>6,
         ]);
 
         Schedule::create([
-            'date' => "2021-06-01",
+            'date' => "2021-06-08",
             'hour' => "16:00",
             'places' =>10,
             'occupation' => 0,
@@ -81,14 +81,14 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-01",
+            'date' => "2021-06-08",
             'hour' => "18:00",
             'places' =>0,
             'occupation' => 0,
             'id_Activity' =>null,
         ]);
         Schedule::create([
-            'date' => "2021-06-01",
+            'date' => "2021-06-08",
             'hour' => "20:00",
             'places' =>10,
             'occupation' => 0,
@@ -96,7 +96,7 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-02",
+            'date' => "2021-06-09",
             'hour' => "10:00",
             'places' =>10,
             'occupation' => 0,
@@ -104,7 +104,85 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-02",
+            'date' => "2021-06-09",
+            'hour' => "12:00",
+            'places' =>10,
+            'occupation' => 1,
+            'id_Activity' =>2,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-09",
+            'hour' => "16:00",
+            'places' =>10,
+            'occupation' => 0,
+            'id_Activity' =>5,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-09",
+            'hour' => "18:00",
+            'places' =>10,
+            'occupation' => 0,
+            'id_Activity' =>null,
+        ]);
+        Schedule::create([
+            'date' => "2021-06-09",
+            'hour' => "20:00",
+            'places' =>0,
+            'occupation' => 0,
+            'id_Activity' =>null,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-10",
+            'hour' => "10:00",
+            'places' =>10,
+            'occupation' => 0,
+            'id_Activity' =>3,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-10",
+            'hour' => "12:00",
+            'places' =>0,
+            'occupation' => 0,
+            'id_Activity' =>null,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-10",
+            'hour' => "16:00",
+            'places' =>10,
+            'occupation' => 0,
+            'id_Activity' =>5,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-10",
+            'hour' => "18:00",
+            'places' =>0,
+            'occupation' => 0,
+            'id_Activity' =>null,
+        ]);
+        Schedule::create([
+            'date' => "2021-06-10",
+            'hour' => "20:00",
+            'places' =>10,
+            'occupation' => 1,
+            'id_Activity' =>3,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-11",
+            'hour' => "10:00",
+            'places' =>0,
+            'occupation' => 0,
+            'id_Activity' =>null,
+        ]);
+
+        Schedule::create([
+            'date' => "2021-06-11",
             'hour' => "12:00",
             'places' =>10,
             'occupation' => 0,
@@ -112,7 +190,7 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-02",
+            'date' => "2021-06-11",
             'hour' => "16:00",
             'places' =>10,
             'occupation' => 0,
@@ -120,14 +198,14 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-02",
+            'date' => "2021-06-11",
             'hour' => "18:00",
             'places' =>10,
             'occupation' => 0,
-            'id_Activity' =>null,
+            'id_Activity' =>3,
         ]);
         Schedule::create([
-            'date' => "2021-06-02",
+            'date' => "2021-06-11",
             'hour' => "20:00",
             'places' =>0,
             'occupation' => 0,
@@ -135,85 +213,7 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-03",
-            'hour' => "10:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>3,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-03",
-            'hour' => "12:00",
-            'places' =>0,
-            'occupation' => 0,
-            'id_Activity' =>null,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-03",
-            'hour' => "16:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>5,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-03",
-            'hour' => "18:00",
-            'places' =>0,
-            'occupation' => 0,
-            'id_Activity' =>null,
-        ]);
-        Schedule::create([
-            'date' => "2021-06-03",
-            'hour' => "20:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>3,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-04",
-            'hour' => "10:00",
-            'places' =>0,
-            'occupation' => 0,
-            'id_Activity' =>null,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-04",
-            'hour' => "12:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>2,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-04",
-            'hour' => "16:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>5,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-04",
-            'hour' => "18:00",
-            'places' =>10,
-            'occupation' => 0,
-            'id_Activity' =>3,
-        ]);
-        Schedule::create([
-            'date' => "2021-06-04",
-            'hour' => "20:00",
-            'places' =>0,
-            'occupation' => 0,
-            'id_Activity' =>null,
-        ]);
-
-        Schedule::create([
-            'date' => "2021-06-05",
+            'date' => "2021-06-12",
             'hour' => "10:00",
             'places' =>10,
             'occupation' => 0,
@@ -221,7 +221,7 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-05",
+            'date' => "2021-06-12",
             'hour' => "12:00",
             'places' =>10,
             'occupation' => 0,
@@ -229,7 +229,7 @@ class ScheduleSeeder extends Seeder
         ]);
 
         Schedule::create([
-            'date' => "2021-06-05",
+            'date' => "2021-06-12",
             'hour' => "16:00",
             'places' =>10,
             'occupation' => 0,
@@ -238,14 +238,14 @@ class ScheduleSeeder extends Seeder
 
         
         Schedule::create([
-            'date' => "2021-06-05",
+            'date' => "2021-06-12",
             'hour' => "18:00",
             'places' =>10,
             'occupation' => 0,
             'id_Activity' =>3,
         ]);
         Schedule::create([
-            'date' => "2021-06-05",
+            'date' => "2021-06-12",
             'hour' => "20:00",
             'places' =>0,
             'occupation' => 0,

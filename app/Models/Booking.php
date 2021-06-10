@@ -14,5 +14,4 @@ class Booking extends Model
         'id_schedules',
         'user_id'
     ];
-
 }

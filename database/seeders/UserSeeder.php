@@ -33,6 +33,32 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'name' => "Maite",
+            'last_name'=> "Toledo",
+            'dni'=>"22368446A",
+            'address'=>"Calle Toles, 12, 1A",
+            'cuota'=>"Anual",
+            'rol'=>1,
+            'phone'=>677055268,
+            'IBAN'=>Crypt::encryptString("ES-1464-0004-18-4012345678"),
+            'email' =>"maite@gmail.com",
+            'password' => Hash::make("12345678"),
+        ]);
+
+        User::create([
+            'name' => "jaime",
+            'last_name'=> "Moreno",
+            'dni'=>"42368446A",
+            'address'=>"Calle Toles, 12, 1A",
+            'cuota'=>"Anual",
+            'rol'=>1,
+            'phone'=>677055268,
+            'IBAN'=>Crypt::encryptString("ES-1464-0004-18-4012345678"),
+            'email' =>"jaime@gmail.com",
+            'password' => Hash::make("12345678"),
+        ]);
+
+        User::create([
             'name' => "Fran",
             'last_name'=> "Campos",
             'dni'=>"33458556N",
@@ -57,7 +83,5 @@ class UserSeeder extends Seeder
             'email' =>"teren@gmail.com",
             'password' => Hash::make("12345678"),
         ]);
-
-        
     }
 }

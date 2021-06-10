@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 
 <!-- CUERPO -->
 <div class="container-fluid">
@@ -79,8 +79,8 @@
 										</div>
 									</div>
 									<div class="col-md-12 mt-4">
-											<button type="submit" class="subscribe btn btn-success btn-sm btn-block">Realizar pedido</button>
-											<a href="{{ url()->previous() }}" class="subscribe btn btn-danger btn-sm btn-block" > Cancelar</a>
+											<button type="submit" class="subscribe btn btn-success btn-sm btn-block" onclick="return confirm('Estas seguro?')">Realizar pedido</button>
+											<a href="{{ url()->previous() }}" onclick="return confirm('Estas seguro?')" class="subscribe btn btn-danger btn-sm btn-block" > Cancelar</a>
 									</div>
 								</div>
 							</div>

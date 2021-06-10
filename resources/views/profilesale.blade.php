@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
 
@@ -21,6 +21,7 @@
                     <th scope="col">id Usuario</th>
                     <th scope="col">Nombre Usuario</th>
                     <th scope="col">Direccion Envio</th>
+                    <th scope="col">Cancelar</th>
                     </tr>
                 </thead>     
                 <tbody class="tbody-yellow">   
@@ -46,6 +47,9 @@
                                 @endif
                             </td>
                             <td>{{$sale->shipping_address}}</td>
+                            <td>
+                                <button type="submit" class="btn-delete btn-sm delete-sale"  data-id="{{ $sale->id }}"><span class="fas fa-trash-alt" name='delete_product'></span></button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -57,6 +61,7 @@
         @endif
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 
 <!-- FOOTER -->
 @include('/includes/footer')

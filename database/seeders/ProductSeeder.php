@@ -52,9 +52,5 @@ class ProductSeeder extends Seeder
             'description' =>'Camiseta de manga corta con corte amplio y cordón de ajuste en la cintura para ajustarla como más te guste. Corte amplio para aportar máxima comodidad y libertad de movimientos, cordón para ajustar la camiseta como más te guste, tejido ligero y transpirable... ¡una prenda indispensable!.',
             'price' =>10.99,
         ]);
-
-
-        
-
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use DateTime;
 use App\Models\User;
@@ -18,12 +17,12 @@ class ProfileController extends Controller
         $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
         $user = \Auth::user()->rol;
         $user_id = \Auth::user()->id;
-        $time_out = (new \DateTime())->modify('-2 minutes');
+        $time_out = (new \DateTime())->modify('-20 minutes');
         $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         $IBAN =Crypt::decryptString( auth()->user()->IBAN);
 
         if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
         }
         if($user == 2){
             $menusProfile = array("Perfil","Horario");
@@ -52,21 +51,13 @@ class ProfileController extends Controller
         -> with('bookings',  $bookings );
     }
 
-    public function delete_order(Sales $order){
-
-        $order_delete = Sales::find( $order->id );
-        $order_delete->delete();
-
-        return redirect('/perfil/perfil');
-    }
-
     public function user(){
 
         $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
         $user = \Auth::user()->rol;
 
         if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
         }
         if($user == 2){
             $menusProfile = array("Perfil","Horario");
@@ -80,20 +71,87 @@ class ProfileController extends Controller
         -> with('users',  $users );
     }
 
-    public function delete_user(User $user){
+    public function product(){
 
-        $user_delete = User::find( $user->id );
-        $user_delete->delete();
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
+        $user = \Auth::user()->rol;
 
-        return redirect('/perfil/usuarios');
+        if($user == 1){
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
+        }
+        if($user == 2){
+            $menusProfile = array("Perfil","Horario");
+        }
+
+        $products = Product::all();
+
+        return view('profileproduct') 
+        -> with('navs',  $menus )
+        -> with('navsProfiles',  $menusProfile )
+        -> with('products',  $products );
     }
 
-    public function delete_product(Product $product){
+    public function activity(){
 
-        $product_delete = Product::find( $product->id );
-        $product_delete->delete();
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
+        $user = \Auth::user()->rol;
 
-        return redirect('/perfil/productos');
+        if($user == 1){
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
+        }
+        if($user == 2){
+            $menusProfile = array("Perfil","Horario");
+        }
+
+        $activities = Activities::all();
+
+        return view('profileActivities') 
+        -> with('navs',  $menus )
+        -> with('navsProfiles',  $menusProfile )
+        -> with('activities',  $activities );
+    }
+
+    public function sales(){
+
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
+        $user = \Auth::user()->rol;
+
+        if($user == 1){
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
+        }
+        if($user == 2){
+            $menusProfile = array("Perfil","Horario");
+        }
+
+        $sales = Sales::leftJoin('product', 'product.id', '=', 'sales.product_id')
+                        ->leftJoin('users', 'users.id', '=', 'sales.user_id')
+                        ->get(['sales.*', 'product.name as name_product','product.price','users.name as name_user'])
+                        ->sortByDesc('created_at');
+
+         return view('profilesale') 
+        -> with('navs',  $menus )
+        -> with('navsProfiles',  $menusProfile )
+        -> with('sales',  $sales ); 
+    }
+
+    public function delete_user($id){
+        User::find($id)->delete($id);
+        return json_encode(array('statusCode'=>200));
+    }
+
+    public function delete_product($id){
+        Product::find($id)->delete();
+        return json_encode(array('statusCode'=>200));
+    }
+
+    public function delete_activity($id){
+        Activities::find($id)->delete();
+        return json_encode(array('statusCode'=>200));
+    }
+
+    public function delete_order($id){
+        Sales::find($id)->delete();
+        return json_encode(array('statusCode'=>200));
     }
 
     public function create_product(Request $request){
@@ -115,14 +173,6 @@ class ProfileController extends Controller
         return redirect('/perfil/productos');
     }
 
-    public function delete_activity(Activities $activity){
-
-        $activity_delete = Activities::find( $activity->id );
-        $activity_delete->delete();
-
-        return redirect('/perfil/actividades');
-    }
-
     public function create_activity(Request $request){
         
         $name = $request->input('name');
@@ -142,68 +192,5 @@ class ProfileController extends Controller
         ]);
 
         return redirect('/perfil/actividades');
-    }
-
-    public function product(){
-
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
-        $user = \Auth::user()->rol;
-
-        if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
-        }
-        if($user == 2){
-            $menusProfile = array("Perfil","Horario");
-        }
-
-        $products = Product::all();
-
-        return view('profileproduct') 
-        -> with('navs',  $menus )
-        -> with('navsProfiles',  $menusProfile )
-        -> with('products',  $products );
-    }
-
-    public function activity(){
-
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
-        $user = \Auth::user()->rol;
-
-        if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
-        }
-        if($user == 2){
-            $menusProfile = array("Perfil","Horario");
-        }
-
-        $activities = Activities::all();
-
-        return view('profileActivities') 
-        -> with('navs',  $menus )
-        -> with('navsProfiles',  $menusProfile )
-        -> with('activities',  $activities );
-    }
-
-    public function sales(){
-
-        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
-        $user = \Auth::user()->rol;
-
-        if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
-        }
-        if($user == 2){
-            $menusProfile = array("Perfil","Horario");
-        }
-
-        $sales = Sales::leftJoin('product', 'product.id', '=', 'sales.product_id')
-                        ->leftJoin('users', 'users.id', '=', 'sales.user_id')
-                        ->get(['sales.*', 'product.name as name_product','product.price','users.name as name_user'])
-                        ->sortByDesc('created_at');
-
-         return view('profilesale') 
-        -> with('navs',  $menus )
-        -> with('navsProfiles',  $menusProfile )
-        -> with('sales',  $sales ); 
     }
 }

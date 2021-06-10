@@ -18,7 +18,7 @@ class ScheduleController extends Controller
         $user = \Auth::user()->rol;
 
         if($user == 1){
-            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Horario");
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
         }
         if($user == 2){
             $menusProfile = array("Perfil","Reservar");
@@ -36,9 +36,8 @@ class ScheduleController extends Controller
         $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         $last_day_of_week = (Schedule::all()->sortByDesc('date')->first())->date;
 
-        //$date_now = new \DateTime();
-        //$date_now = (new \DateTime())->modify('+5 day');
-        $date_now = (new \DateTime())->modify('+15 day');
+        $date_now = new \DateTime();
+        //$date_now = (new \DateTime())->modify('+10 day');
 
         return view('profileSchedule') 
             -> with('navs',  $menus )
@@ -52,34 +51,31 @@ class ScheduleController extends Controller
             -> with('last_day_of_week',  $last_day_of_week );  
     }
 
-    public function book_class(Schedule $class){
+    public function book_class($id){
 
-        $id_schedule = $class->id;
         $user_id = \Auth::user()->id;
 
-        $schedules = Schedule::find($id_schedule);
+        $schedules = Schedule::find($id);
         $schedules->occupation = $schedules->occupation + 1;
-        
         $schedules-> save();
 
         Booking::create([
-            'id_schedules' =>  $id_schedule,
+            'id_schedules' =>  $id,
             'user_id' => $user_id,
         ]);
 
-        return redirect('/perfil');
+        return json_encode(array('statusCode'=>200));
     }
     
-    public function delete_booking(Booking $booking){
+    public function delete_booking($id){
 
-        $schedules = Schedule::find($booking->id_schedules);
+        $schedules_id = Booking::find($id)->id_schedules;
+        $schedules = Schedule::find($schedules_id);
         $schedules->occupation = $schedules->occupation - 1;
-        $schedules-> save();
+        $schedules->save();
 
-        $booking_delete = Booking::find( $booking->id );
-        $booking_delete->delete();
-
-        return redirect('/perfil');
+        Booking::find($id)->delete($id);
+        return json_encode(array('statusCode'=>200));
     }
 
     public function add_class(Request $request){
@@ -116,7 +112,48 @@ class ScheduleController extends Controller
             $schedule->date = $date_new;
             $schedule-> save();
         }
+
+        $bookings = Booking::truncate();
         
         return redirect('/perfil/horario');
+    }
+
+    public function show_booking(){
+
+        $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
+        $user = \Auth::user()->rol;
+        $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+        $date_now = new \DateTime();
+        //$date_now = (new \DateTime())->modify('+5 day');
+        //$date_now = (new \DateTime())->modify('+15 day');
+
+        if($user == 1){
+            $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
+        }
+        if($user == 2){
+            $menusProfile = array("Perfil","Horario");
+        }
+
+        $bookings = Booking::join('schedule', 'schedule.id', '=', 'bookings.id_schedules')
+                            ->join('users', 'users.id', '=', 'bookings.user_id')
+                            ->leftJoin('activities', 'activities.id', '=', 'schedule.id_Activity')
+                            ->get([
+                                'bookings.id as id_booking',
+                                'schedule.date',
+                                'schedule.hour',
+                                'activities.name',
+                                'schedule.places',
+                                'users.name as name_user',
+                                'users.email',
+                                'users.phone',
+                                'users.last_name as last_name_user' ])
+                            ->sortByDesc('date');
+
+         return view('profileBooking') 
+        -> with('navs',  $menus )
+        -> with('navsProfiles',  $menusProfile )
+        -> with('day_week_es',  $day_week_es )
+        -> with('date_now',  $date_now )
+        -> with('bookings',  $bookings ); 
     }
 }

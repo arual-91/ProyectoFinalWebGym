@@ -1,5 +1,5 @@
 <!-- HEADER -->
-@include('/includes/header')
+@include('/includes/head')
 @include('/includes/nav')
 @include('/includes/navprofile')
 
@@ -49,13 +49,12 @@
         <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="row">Hora</th>
-                    <th>Lunes</th>
-                    <th>Martes</th>
-                    <th>Miercoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
-                    <th>Sabado</th>
+                    <th scope="row" style="font-size: 16px;text-transform:uppercase">Hora</th>
+                    @foreach ($dates as $date)
+                        <th  style="text-transform:uppercase">
+                           <span style="font-size: 16px">{{$day_week_es[(new DateTime($date->date))->format('w')-1] }}</span> <span style="font-size: 12px">{{(new DateTime($date->date))->format('d/m')}}</span>
+                        </th>
+                    @endforeach
                 </tr>
             </thead>     
             <tbody >
@@ -71,13 +70,14 @@
                                         <p>-</p>
                                     @else
                                         <p style="font-size: 15px"><b>{{$class->activity}}</b></p>
-                                        <p>{{$class->occupation}}/{{$class->places}}</p>
+                                        <p>
+                                            <span class="num-ocupation">{{$class->occupation}}</span>
+                                            /
+                                            <span class="num-ocupation-max">{{$class->places}}</span>
+                                        </p>
                                         @if ($class->date >= ($date_now)->format('Y-m-d'))
                                             @if ($class->occupation < $class->places )
-                                                <form action="{{ route('schedule.book_class', $class) }}" method="POST" class="m-2">
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-outline-warning btn-sm">Reservar</button>
-                                                </form>
+                                                <button type="submit" class="btn btn-outline-warning btn-sm booking-class" data-id="{{ $class->id }}">Reservar</button>
                                             @else
                                                 <p>LLENO</p>
                                             @endif
@@ -94,6 +94,7 @@
         </table>
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 
 <!-- FOOTER -->
 @include('/includes/footer')
