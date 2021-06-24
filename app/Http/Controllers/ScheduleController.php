@@ -21,7 +21,7 @@ class ScheduleController extends Controller
             $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");
         }
         if($user == 2){
-            $menusProfile = array("Perfil","Reservar");
+            $menusProfile = array("Perfil","Horario");
         }
 
         $schedules = Schedule::leftJoin('activities', 'activities.id', '=', 'schedule.id_Activity')
@@ -37,7 +37,7 @@ class ScheduleController extends Controller
         $last_day_of_week = (Schedule::all()->sortByDesc('date')->first())->date;
 
         $date_now = new \DateTime();
-        //$date_now = (new \DateTime())->modify('+10 day');
+        //$date_now = (new \DateTime())->modify('+2 day');
 
         return view('profileSchedule') 
             -> with('navs',  $menus )
@@ -124,8 +124,6 @@ class ScheduleController extends Controller
         $user = \Auth::user()->rol;
         $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         $date_now = new \DateTime();
-        //$date_now = (new \DateTime())->modify('+5 day');
-        //$date_now = (new \DateTime())->modify('+15 day');
 
         if($user == 1){
             $menusProfile = array("Perfil","Usuarios","Productos","Actividades","Ventas","Reservas","Horario");

@@ -22,15 +22,16 @@
             <div class=" rounded-corners bg-white m-1 p-4 ">
                 <div class="media row">
                     <div class="media-left col-2 m-1">
-                        <img src="/imagenes/tienda/{{$product->image}}" class="media-object border border-dark mr-3 p-3" style="width:150px">
+                        <img src="/imagenes/tienda/{{$product->image}}" class="media-object mr-3 p-3" style="width:150px">
                     </div>
-                    <div class="media-body m-3 col-8 align-self-center ">
+                    <div class="media-body m-2 col-7 align-self-center ">
                         <h4 class="media-heading text-uppercase ">{{$product->name}}</h4>
-                        <p>{{$product->description}}</p>
                     </div>
                     <div class="text-center col-2  align-self-center ">
-                        <h1 class="price mb-3">{{$product->price}} €</h1>
-                        <a class="boton-tarifa btn " href="{{ url('/tienda') }}/{{$product->id}}">Comprar</a>  
+                        <h1 class="price">{{$product->price}} €</h1>
+                    </div>
+                    <div class="text-center col-2  align-self-center ">
+                        <a class="boton-tarifa btn " href="{{ url('/tienda') }}/{{$product->id}}">Ver detalles</a>  
                     </div> 
                 </div>
             </div>

@@ -17,7 +17,10 @@ class ProfileController extends Controller
         $menus = array("Inicio", "Tarifas", "Tienda", "Instalaciones","Actividades","Contacto");
         $user = \Auth::user()->rol;
         $user_id = \Auth::user()->id;
-        $time_out = (new \DateTime())->modify('-20 minutes');
+        $time_out = (new \DateTime())->modify('-60 minutes');
+        //$time_out = (new \DateTime())->modify('-1 minutes');
+        $date_now = new \DateTime();
+        //$date_now = (new \DateTime())->modify('+7 day');
         $day_week_es = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         $IBAN =Crypt::decryptString( auth()->user()->IBAN);
 
@@ -38,8 +41,9 @@ class ProfileController extends Controller
                             ->join('users', 'users.id', '=', 'bookings.user_id')
                             ->leftJoin('activities', 'activities.id', '=', 'schedule.id_Activity')
                             ->where('users.id', $user_id)
-                            ->get(['bookings.id as id_booking','schedule.date','schedule.hour','activities.name','schedule.places'])
-                            ->sortByDesc('created_at');
+                            ->get(['bookings.id as id_booking','bookings.created_at as created_at_booking','schedule.date','schedule.hour','activities.name','schedule.places'])
+                            ->sortByDesc('date')
+                            ->sortByDesc('hour');
         
         return view('profile') 
         -> with('navs',  $menus )
@@ -47,6 +51,7 @@ class ProfileController extends Controller
         -> with('iban',  $IBAN )
         -> with('orders',  $orders )
         -> with('time_out',  $time_out )
+        -> with('date_now',  $date_now )
         -> with('day_week_es',  $day_week_es )
         -> with('bookings',  $bookings );
     }

@@ -48,7 +48,9 @@
                                         <td>{{$day_week_es[(new DateTime($booking->date))->format('w')-1] }} {{(new DateTime($booking->date))->format('d/m/Y')}}</td>
                                         <td>{{$booking->hour}}</td>
                                         <td>
-                                            <button type="submit" class="btn btn-danger btn-sm delete-booking-profile" data-id="{{ $booking->id_booking }}">Cancelar</button>
+                                            @if($booking->date >= ($date_now)->format('Y-m-d'))
+                                                <button type="submit" class="btn btn-danger btn-sm delete-booking-profile" data-id="{{ $booking->id_booking }}">Cancelar</button>
+                                            @endif       
                                         </td>
                                     </tr>
                                 @endforeach
@@ -90,7 +92,7 @@
                         @endif
                     </tbody>
                 </table>
-                <p class="mt-5 mb-5">***Solo se podran eliminar pedidos con una hora de antelacion.</p>
+                <p class="mt-4 mb-5">***Podrás cancelar tu pedido siempre y cuando este no supere la hora después de su compra.</p>
             </div>
         </div>
     </div>

@@ -14,11 +14,27 @@
                         <div class="form-group row">
                             <label for="cuota" class="col-md-4 col-form-label text-md-right">{{ __('CUOTA') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6">                                
                                 <select id="cuota" class="form-control @error('cuota') is-invalid @enderror" name="cuota" >
-                                    <option value="Mensual" selected>Mensual</option>
-                                    <option value="Trimestral">Trimestral</option>
-                                    <option value="Anual">Anual</option>
+                                    @if(app('request')->input('option') == "Mensual")
+                                        <option value="Mensual" selected>Mensual</option>
+                                    @else
+                                        <option value="Mensual" >Mensual</option>
+                                    @endif
+
+                                    @if(app('request')->input('option') == "Trimestral")
+                                        <option value="Trimestral" selected>Trimestral</option>
+                                    @else
+                                        <option value="Trimestral">Trimestral</option>
+                                    @endif
+
+                                    @if(app('request')->input('option') == "Anual")
+                                        <option value="Anual" selected>Anual</option>
+                                    @else
+                                        <option value="Anual">Anual</option>
+                                    @endif
+
+
                                 </select>
 
                                 @error('cuota')
@@ -75,7 +91,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" size="9" maxlength="9" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="phone" type="number" size="9" maxlength="9" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -138,14 +154,14 @@
                         <div class="iban form-group row ">
                                 <fieldset class="col-form-label">
                                     <legend class="ml-3 col-form-label">País</legend>
-                                    <input type="text" class="ml-1" id="cccCountry" name="cccCountry" placeholder="ej: ES" maxlength="2" size="2" required accesskey="p">
+                                    <input type="text" class="ml-1" id="cccCountry" name="cccCountry" placeholder="ej: ES" maxlength="2" size="2" required accesskey="p" value="{{ old('cccCountry') }}" >
                                 </fieldset>
                                 <fieldset class="col-form-label">
                                     <legend class="ml-3 col-form-label">Nº de cuenta</legend>
-                                    <input type="text" class="ml-1" id="ccc1" name="ccc1" placeholder="0000" maxlength="4" size="4" required accesskey="1">
-                                    <input type="text" class="ml-1" id="ccc2" name="ccc2" placeholder="0000" maxlength="4" size="4" required accesskey="2">
-                                    <input type="text" class="ml-1" id="ccc3" name="ccc3" placeholder="00" maxlength="2" size="2" required accesskey="3">
-                                    <input type="text" class="ml-1" id="ccc4" name="ccc4" placeholder="0000000000" maxlength="10" size="10" required accesskey="4">
+                                    <input type="text" class="ml-1" id="ccc1" name="ccc1" placeholder="0000" maxlength="4" size="4" required accesskey="1" value="{{ old('ccc1') }}">
+                                    <input type="text" class="ml-1" id="ccc2" name="ccc2" placeholder="0000" maxlength="4" size="4" required accesskey="2" value="{{ old('ccc2') }}">
+                                    <input type="text" class="ml-1" id="ccc3" name="ccc3" placeholder="00" maxlength="2" size="2" required accesskey="3" value="{{ old('ccc3') }}">
+                                    <input type="text" class="ml-1" id="ccc4" name="ccc4" placeholder="0000000000" maxlength="10" size="10" required accesskey="4" value="{{ old('ccc4') }}">
                                 </fieldset>
                         </div>
 

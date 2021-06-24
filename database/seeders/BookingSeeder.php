@@ -47,5 +47,80 @@ class BookingSeeder extends Seeder
             'user_id' => 2,
         ]);
 
+
+        Booking::create([
+            'id_schedules' => 22,
+            'user_id' => 5,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 22,
+            'user_id' => 4,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 22,
+            'user_id' => 3,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 22,
+            'user_id' => 1,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 22,
+            'user_id' => 2,
+        ]);
+
+
+
+
+        Booking::create([
+            'id_schedules' => 23,
+            'user_id' => 5,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 24,
+            'user_id' => 4,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 24,
+            'user_id' => 3,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 24,
+            'user_id' => 1,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 27,
+            'user_id' => 2,
+        ]);
+
+
+        Booking::create([
+            'id_schedules' => 29,
+            'user_id' => 3,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 29,
+            'user_id' => 2,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 28,
+            'user_id' => 4,
+        ]);
+
+        Booking::create([
+            'id_schedules' => 28,
+            'user_id' => 5,
+        ]);
+
     }
 }

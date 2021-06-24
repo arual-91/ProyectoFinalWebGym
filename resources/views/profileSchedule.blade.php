@@ -65,11 +65,11 @@
                         </th>
                         @foreach ($schedules as $class)
                             @if ($class->hour == $hour->hour )
-                                <td>
+                                <td class="classActivity">
                                     @if(is_null($class->activity))
                                         <p>-</p>
                                     @else
-                                        <p style="font-size: 15px"><b>{{$class->activity}}</b></p>
+                                        <p style="font-size: 15px" ><b>{{$class->activity}}</b></p>
                                         <p>
                                             <span class="num-ocupation">{{$class->occupation}}</span>
                                             /
@@ -79,7 +79,7 @@
                                             @if ($class->occupation < $class->places )
                                                 <button type="submit" class="btn btn-outline-warning btn-sm booking-class" data-id="{{ $class->id }}">Reservar</button>
                                             @else
-                                                <p>LLENO</p>
+                                                <p class="full-class">COMPLETA</p>
                                             @endif
                                         @else
                                             <button type="submit" class="btn btn-secondary btn-lg btn-sm" disabled>Reservar</button>

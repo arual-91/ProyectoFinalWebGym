@@ -1,18 +1,19 @@
 
    <!-- NAVEGADOR -->
-<nav class="navbar navbar-expand-md fixed-top navbar-dark font-weight-bold">
-    <div class="container-fluid">
-            <ul class="nav navbar-nav ">
-                    <li class="nav-item ">
-                        <img class="img-fluid mr-4 m-1" src={{ asset('imagenes/logo.png') }} style="height: 60px">
-                    </li> 
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark font-weight-bold">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ">
                 @foreach ($navs as $menu)
-                    <li class="nav-item ">
-                        <a class="nav-link " href="{{ URL::to('./'.strtolower(trim($menu))) }}">{{ $menu }}</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL::to('./'.strtolower(trim($menu))) }}">{{ $menu }}</a>
                     </li> 
                 @endforeach
             </ul>  
-            <ul class="nav navbar-nav ">  
+    </div>
+            <ul class="nav  mr-2">  
             
                 @guest
                     <a class="seccion" href="{{ route('login')}}" class="pull-left">Login</a>       
@@ -27,13 +28,12 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-    </div>
+ 
 </nav>
     <!--  CABECERA -->
 <section >
     <div class="containe" >
         <div class=" text-center pt-5 text-white" id="head">
-            <img class="img-fluid pt-4" src={{ asset('imagenes/logo.png') }} style="height: 230px">
         </div>
     </div>
     <div class="info-gym row" style="background-color: rgb(77, 77, 77);font-size: 16px;">
