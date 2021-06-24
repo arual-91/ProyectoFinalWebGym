@@ -37,7 +37,7 @@ class ScheduleController extends Controller
         $last_day_of_week = (Schedule::all()->sortByDesc('date')->first())->date;
 
         $date_now = new \DateTime();
-        //$date_now = (new \DateTime())->modify('+2 day');
+        //$date_now = (new \DateTime())->modify('+5 day');
 
         return view('profileSchedule') 
             -> with('navs',  $menus )

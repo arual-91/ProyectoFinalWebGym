@@ -20,7 +20,7 @@
 					</div>
 					<br>
 					<article class="ml-4">
-						<h4>DESCRIPCION:</h4>
+						<h4>DESCRIPCIÓN:</h4>
 						<p style="font-size: 18px" >{{$product->description}}</p>
 						<h1 class="price mt-5 mr-5 " style="font-size: 50px">{{$product->price}} €</h1>
 						<div class="d-flex justify-content-end">

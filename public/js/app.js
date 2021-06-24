@@ -70,6 +70,8 @@ $(".delete-activities").click(function() {
 $(".delete-sale-profile").click(function() {
     if (confirm('Estas seguro?')) {
         var $element = $(this).parent().parent();
+        var $table = $(this).parent().parent().parent();
+        var $count = $table.children().length
         var id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
 
@@ -83,7 +85,10 @@ $(".delete-sale-profile").click(function() {
             success: function(dataResult) {
                 var dataResult = JSON.parse(dataResult);
                 if (dataResult.statusCode == 200) {
-                    $element.fadeOut().remove();
+                    $element.empty()
+                    if ($count < 2) {
+                        $element.append('<td><b>NO HA REALIZADO NINGUN PEDIDO.</b></td>');
+                    }
                 }
             }
         });
@@ -116,9 +121,10 @@ $(".delete-sale").click(function() {
 $(".delete-booking-profile").click(function() {
     if (confirm('Estas seguro?')) {
         var $element = $(this).parent().parent();
+        var $table = $(this).parent().parent().parent();
+        var $count = $table.children().length
         var id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
-        console.log(id)
 
         $.ajax({
             url: "/perfil/perfil/delete_booking/" + id,
@@ -130,7 +136,10 @@ $(".delete-booking-profile").click(function() {
             success: function(dataResult) {
                 var dataResult = JSON.parse(dataResult);
                 if (dataResult.statusCode == 200) {
-                    $element.fadeOut().remove();
+                    $element.empty();
+                    if ($count < 2) {
+                        $element.append('<td><b>NO HAY ACTIVIDADES RESERVADAS.</b></td>');
+                    }
                 }
             }
         });
@@ -184,7 +193,7 @@ $(".booking-class").click(function() {
                         num_ocupation = num_ocupation + 1
                         $element.find("span.num-ocupation").html(num_ocupation)
                         if (num_ocupation == num_ocupation_max) {
-                            $element.append('<p>LLENO</p>');
+                            $element.append('<p class="full-class">COMPLETA</p>');
                             $button.remove();
                         }
                     }

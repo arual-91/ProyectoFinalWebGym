@@ -38,7 +38,7 @@
                         <tr>
                             <th scope="row">{{$product->id}}</th>
                             <td>{{$product->name}}</td>
-                            <td>{{$product->price}}</td>
+                            <td>{{$product->price}} €</td>
                             <td><img  class=""  src="/imagenes/tienda/{{$product->image}}" style="width:80px"></td>
                             <td>
                                 <button type="submit" class="btn-delete delete-product"  data-id="{{ $product->id }}"><span class="fas fa-trash-alt" name='delete_product'></span></button>
